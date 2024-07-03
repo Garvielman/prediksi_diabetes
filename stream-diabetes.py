@@ -55,7 +55,7 @@ with col1 :
 with col2 :
 	Obesity = st.text_input ('input Obesity')
 
-diab_diagnosis = ''
+print (' ')
 
 if st.button('Test Prediction Diabetes'):
 	diab_prediction = diabetes_model.predict([[Age, Gender, Polyuria, Polydipsia, Suddenweightloss, Weakness, Polyphagia, Genitalthrush, Visualblurring, Itching, Irritability, Delayedhealing, Partialparesis, Musclestiffness, Alopecia, Obesity]])
