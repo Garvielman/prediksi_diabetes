@@ -55,14 +55,14 @@ with col1 :
 with col2 :
 	Obesity = st.text_input ('input Obesity')
 
-print (' ')
+diab_diagnosis=' '
 
 if st.button('Test Prediction Diabetes'):
 	diab_prediction = diabetes_model.predict([[Age, Gender, Polyuria, Polydipsia, Suddenweightloss, Weakness, Polyphagia, Genitalthrush, Visualblurring, Itching, Irritability, Delayedhealing, Partialparesis, Musclestiffness, Alopecia, Obesity]])
 
 	if(diab_prediction[0] == 1):
-		 print ('Pasien terkena Diabetes')
+		 diab_diagnosis =('Pasien terkena Diabetes')
 	else :
-		 print ('Pasien tidak terkena Diabetes')
+		 diab_diagnosis =('Pasien tidak terkena Diabetes')
 
 	st.success(diab_diagnosis)
