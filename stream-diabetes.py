@@ -83,15 +83,22 @@ if st.button('Test Prediction Diabetes'):
     # Display input data for debugging
     st.write("Input data:", input_data)
     
-    # Make prediction
-    diab_prediction = diabetes_model.predict(input_data)
+    # Ensure model is correctly loaded
+    st.write("Model loaded:", type(diabetes_model))
 
-    # Display prediction for debugging
-    st.write("Prediction:", diab_prediction)
-    
-    if diab_prediction[0] == 1:
-        diab_diagnosis = 'Pasien terkena Diabetes'
-    else:
-        diab_diagnosis = 'Pasien tidak terkena Diabetes'
+    try:
+        # Make prediction
+        diab_prediction = diabetes_model.predict(input_data)
+
+        # Display prediction for debugging
+        st.write("Prediction:", diab_prediction)
+
+        if diab_prediction[0] == 1:
+            diab_diagnosis = 'Pasien terkena Diabetes'
+        else:
+            diab_diagnosis = 'Pasien tidak terkena Diabetes'
+        
+    except Exception as e:
+        st.error(f"Error in prediction: {e}")
 
     st.success(diab_diagnosis)
